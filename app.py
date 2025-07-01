@@ -49,10 +49,9 @@ section.main > div {
 col1, col2, col3 = st.columns([1,6,1])
 
 with col1:
-    logo_entreprise_path = "C:/Users/admin/Documents/projet fermentation/logo_entreprise.jpeg"
-    if os.path.exists(logo_entreprise_path):
-        st.image(logo_entreprise_path, width=100)
-    else:
+    try:
+        st.image("logo_entreprise.jpeg", width=100)
+    except:
         st.warning("Logo entreprise introuvable")
 
 with col2:
@@ -65,17 +64,15 @@ with col2:
     """, unsafe_allow_html=True)
 
 with col3:
-    logo_iav_path = "C:/Users/admin/Documents/projet fermentation/logo_iav.png"
-    if os.path.exists(logo_iav_path):
-        st.image(logo_iav_path, width=100)
-    else:
+    try:
+        st.image("logo_iav.png", width=100)
+    except:
         st.warning("Logo IAV introuvable")
 
 st.markdown("---")
 
-
 # =============================
-# 📂 Chargement fichier
+# 📂 Chargement fichier via upload Streamlit
 # =============================
 uploaded_file = st.sidebar.file_uploader("📁 Charger un fichier Excel ou CSV", type=["xlsx", "csv"])
 
