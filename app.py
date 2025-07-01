@@ -80,7 +80,7 @@ if uploaded_file is not None:
     try:
         if uploaded_file.name.endswith(".csv"):
             try:
-                df = pd.read_csv(uploaded_file, encoding="utf-8")
+                df = pd.read_csv(uploaded_file, encoding="utf-8", sep=';') 
             except UnicodeDecodeError:
                 df = pd.read_csv(uploaded_file, encoding="latin1")
         else:
